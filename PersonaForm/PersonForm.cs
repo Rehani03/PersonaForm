@@ -13,13 +13,15 @@ namespace PersonaForm
 {
     public partial class PersonForm : Form
     {
-        Persona[] persona;
+      //  Persona[] persona;
+        List<Persona> listaPersona;
         private int cont = 0;
         public PersonForm()
         {
             InitializeComponent();
-            persona = new Persona[4];
-            MessageBox.Show("Este registro solo guarda 4 personas en Memoria.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //persona = new Persona[4];
+            listaPersona = new List<Persona>(); 
+           // MessageBox.Show("Este registro solo guarda 4 personas en Memoria.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Guardarbutton2_Click(object sender, EventArgs e)
@@ -36,14 +38,11 @@ namespace PersonaForm
 
             try
             {
-                if(cont < 4)
-                {
-                    this.persona[cont] = person; //Paso a guardar la persona en el arreglo
-                    cont++; //Le sumo otro al contador
-                    MessageBox.Show("Guardado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos(); // Limpios los campos en pantalla
-                }
-                           
+                listaPersona.Add(person);
+                cont++;
+                MessageBox.Show("Guardado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarCampos(); // Limpios los campos en pantalla
+                                      
             }
             catch (Exception ex)
             {
@@ -123,23 +122,21 @@ namespace PersonaForm
 
         private void Buscarbutton3_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(IDnumericUpDown1.Value);
-
+            int id = Convert.ToInt32(IDnumericUpDown1.Value);
+           
             try
             {
-                if(persona[Id] == null)
+
+                var list = listaPersona.Where(p => p.Id == id).ToList();
+
+                foreach (var item in list)
                 {
-                    MessageBox.Show("Error en referencia Nula");
-                    LimpiarCampos();
-                    return;
+                    if(item.Id == id)
+                    {
+                        LlenaCampos(item);
+                    }
                 }
-                else
-                {
-                    NombretextBox1.Text = this.persona[Id].Nombre;
-                    DirecciontextBox2.Text = this.persona[Id].Direccion;
-                    telefonomaskedTextBox1.Text = this.persona[Id].Telefono;
-                }
-              
+
             }
             catch (Exception error)
             {
