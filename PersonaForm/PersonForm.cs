@@ -62,6 +62,8 @@ namespace PersonaForm
             p.Nombre = NombretextBox1.Text;
             p.Direccion = DirecciontextBox2.Text;
             p.Telefono = telefonomaskedTextBox1.Text;
+            p.Birthday = BirthdaydateTimePicker1.Value;
+            p.Age = Convert.ToInt32(AgetextBox1.Text);
 
             return p;
         }
@@ -72,6 +74,8 @@ namespace PersonaForm
             NombretextBox1.Text = p.Nombre;
             DirecciontextBox2.Text = p.Direccion;
             telefonomaskedTextBox1.Text = p.Telefono;
+            BirthdaydateTimePicker1.Value = p.Birthday;
+            AgetextBox1.Text = p.Age.ToString();
         }
 
         private void LimpiarCampos()
@@ -81,6 +85,8 @@ namespace PersonaForm
             NombretextBox1.Text = String.Empty;
             DirecciontextBox2.Text = String.Empty;
             telefonomaskedTextBox1.Text = String.Empty;
+            BirthdaydateTimePicker1.Value = DateTime.Now;
+            AgetextBox1.Text = string.Empty;
         }
 
         private bool Validar()
@@ -144,6 +150,22 @@ namespace PersonaForm
                 
             }
            
+        }
+
+        private void BirthdaydateTimePicker1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //CalcularEdad();
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                CalcularEdad();
+            }
+        }
+
+        private void CalcularEdad()
+        {
+            int edad = Convert.ToInt32(DateTime.Now.Year) - Convert.ToInt32(BirthdaydateTimePicker1.Value.Year);
+
+            AgetextBox1.Text = edad.ToString();
         }
     }
 }

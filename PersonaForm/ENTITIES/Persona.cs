@@ -12,6 +12,8 @@ namespace PersonaForm.ENTITIES
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
+        public DateTime Birthday { get; set; }
+        public int Age { get; set; }
 
         public Persona()
         {
@@ -19,6 +21,8 @@ namespace PersonaForm.ENTITIES
             Nombre = string.Empty;
             Direccion = string.Empty;
             Telefono = string.Empty;
+            Birthday = DateTime.Now;
+            Age = 0;
         }
     }
 
