@@ -14,6 +14,7 @@ namespace PersonaForm.ENTITIES
         public string Telefono { get; set; }
         public DateTime Birthday { get; set; }
         public int Age { get; set; }
+      
 
         public Persona()
         {

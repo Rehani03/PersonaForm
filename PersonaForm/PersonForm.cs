@@ -19,6 +19,7 @@ namespace PersonaForm
         public PersonForm()
         {
             InitializeComponent();
+            FiltrocomboBox1.SelectedIndex = 0;
             //persona = new Persona[4];
             listaPersona = new List<Persona>(); 
            // MessageBox.Show("Este registro solo guarda 4 personas en Memoria.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -166,6 +167,74 @@ namespace PersonaForm
             int edad = Convert.ToInt32(DateTime.Now.Year) - Convert.ToInt32(BirthdaydateTimePicker1.Value.Year);
 
             AgetextBox1.Text = edad.ToString();
+        }
+
+        private void Consultarbutton1_Click(object sender, EventArgs e)
+        {
+            consulta();
+        }
+
+        private void consulta()
+        {
+            try
+            {
+                int opcion = FiltrocomboBox1.SelectedIndex;
+                List<Persona> lista = new List<Persona>();
+
+
+                switch (opcion)
+                {
+                    case 0:
+                        MostrarConsulta(listaPersona);
+                        break;
+                    case 1:
+                        lista = listaPersona.Where(p => p.Nombre.Contains(CriteriotextBox1.Text)).ToList();
+                        MostrarConsulta(lista);
+                        break;
+                    case 2:
+                        lista = listaPersona.Where(p => p.Telefono.Contains(CriteriotextBox1.Text)).ToList();
+                        MostrarConsulta(lista);
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+
+               
+            }
+        }
+
+        private void MostrarConsulta(List<Persona> lista)
+        {
+            ConsultadataGridView1.DataSource = null;
+            ConsultadataGridView1.DataSource = lista;
+        }
+
+        private void CriteriotextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            consulta();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int ID = getId();
+
+            var lista = listaPersona.Where(i => i.Id == ID).ToList();
+
+            foreach (var item in lista)
+            {
+                if(item.Id == ID)
+                {
+                    LlenaCampos(item);
+                }
+            }
+        }
+
+        private int getId()
+        {
+            int id = Convert.ToInt32(ConsultadataGridView1.CurrentRow.Cells[0].Value);
+
+            return id;
         }
     }
 }
