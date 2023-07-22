@@ -39,10 +39,18 @@ namespace PersonaForm
 
             try
             {
-                listaPersona.Add(person);
-                cont++;
-                MessageBox.Show("Guardado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarCampos(); // Limpios los campos en pantalla
+                if(Convert.ToInt32(IDnumericUpDown1.Value) == 0)
+                {
+                    listaPersona.Add(person);
+                    cont++;
+                    MessageBox.Show("Guardado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos(); // Limpios los campos en pantalla
+                }
+                else
+                {
+                    Modificar();
+                }
+                
                                       
             }
             catch (Exception ex)
@@ -50,16 +58,42 @@ namespace PersonaForm
                 MessageBox.Show("Error" + ex.Message);
                
             }
-           
+
+            MostrarConsulta(this.listaPersona);
+        }
+
+        private void Modificar()
+        {
+            int Id = Convert.ToInt32(IDnumericUpDown1.Value);
+            var p = LlenaClase();
 
 
+            foreach (var item in listaPersona)
+            {
+                if(item.Id == Id)
+                {
+                    item.Id = p.Id;
+                    item.Nombre = p.Nombre;
+                    item.Direccion = p.Direccion;
+                    item.Telefono = p.Telefono;
+                    item.Birthday = p.Birthday;
+                    item.Age = p.Age;
+
+                }
+            }
+
+            MessageBox.Show("Actualizado con exito!!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private Persona LlenaClase()
         {
             Persona p = new Persona();
 
-            p.Id = cont;
+            if (Convert.ToInt32(IDnumericUpDown1.Value) == 0)
+                p.Id = cont;
+            else
+                p.Id = Convert.ToInt32(IDnumericUpDown1.Value);
+
             p.Nombre = NombretextBox1.Text;
             p.Direccion = DirecciontextBox2.Text;
             p.Telefono = telefonomaskedTextBox1.Text;
@@ -95,11 +129,11 @@ namespace PersonaForm
             bool paso = true;
             MyerrorProvider1.Clear();
 
-            if (Convert.ToInt32(IDnumericUpDown1.Value) > 0)
-            {
-                MyerrorProvider1.SetError(IDnumericUpDown1, "Este campo debe ser 0 para poder guardar el registro.");
-                paso = false;
-            }
+            //if (Convert.ToInt32(IDnumericUpDown1.Value) >= 0)
+            //{
+            //    MyerrorProvider1.SetError(IDnumericUpDown1, "Este campo debe ser 0 para poder guardar el registro.");
+            //    paso = false;
+            //}
 
             if (string.IsNullOrWhiteSpace(NombretextBox1.Text))
             {
