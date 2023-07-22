@@ -236,5 +236,31 @@ namespace PersonaForm
 
             return id;
         }
+
+        private void Eliminarbutton2_Click(object sender, EventArgs e)
+        {
+            int Id = getId();
+
+            try
+            {
+                if(this.listaPersona.RemoveAll(p=>p.Id == Id) == 1)
+                {
+                    MostrarConsulta(this.listaPersona);
+                    MessageBox.Show("Eliminado con exito!!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar!!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+            
+        }
     }
 }

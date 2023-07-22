@@ -31,6 +31,14 @@ namespace PersonaForm
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Consultarbutton1 = new System.Windows.Forms.Button();
+            this.ConsultadataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CriteriotextBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.FiltrocomboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.AgetextBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BirthdaydateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -47,19 +55,12 @@ namespace PersonaForm
             this.IDnumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.MyerrorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.FiltrocomboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.CriteriotextBox1 = new System.Windows.Forms.TextBox();
-            this.ConsultadataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Consultarbutton1 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Eliminarbutton2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,6 +85,94 @@ namespace PersonaForm
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(775, 346);
             this.panel1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Eliminarbutton2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Consultarbutton1);
+            this.groupBox1.Controls.Add(this.ConsultadataGridView1);
+            this.groupBox1.Controls.Add(this.CriteriotextBox1);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.FiltrocomboBox1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(364, 8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(399, 335);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "CONSULTA";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(11, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 31);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "INSERTAR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Consultarbutton1
+            // 
+            this.Consultarbutton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Consultarbutton1.Location = new System.Drawing.Point(241, 8);
+            this.Consultarbutton1.Name = "Consultarbutton1";
+            this.Consultarbutton1.Size = new System.Drawing.Size(94, 31);
+            this.Consultarbutton1.TabIndex = 5;
+            this.Consultarbutton1.Text = "CONSULTAR";
+            this.Consultarbutton1.UseVisualStyleBackColor = false;
+            this.Consultarbutton1.Click += new System.EventHandler(this.Consultarbutton1_Click);
+            // 
+            // ConsultadataGridView1
+            // 
+            this.ConsultadataGridView1.AllowUserToAddRows = false;
+            this.ConsultadataGridView1.AllowUserToDeleteRows = false;
+            this.ConsultadataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ConsultadataGridView1.Location = new System.Drawing.Point(11, 80);
+            this.ConsultadataGridView1.Name = "ConsultadataGridView1";
+            this.ConsultadataGridView1.ReadOnly = true;
+            this.ConsultadataGridView1.Size = new System.Drawing.Size(382, 209);
+            this.ConsultadataGridView1.TabIndex = 4;
+            // 
+            // CriteriotextBox1
+            // 
+            this.CriteriotextBox1.Location = new System.Drawing.Point(83, 45);
+            this.CriteriotextBox1.Name = "CriteriotextBox1";
+            this.CriteriotextBox1.Size = new System.Drawing.Size(310, 20);
+            this.CriteriotextBox1.TabIndex = 3;
+            this.CriteriotextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CriteriotextBox1_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "CRITERIO:";
+            // 
+            // FiltrocomboBox1
+            // 
+            this.FiltrocomboBox1.FormattingEnabled = true;
+            this.FiltrocomboBox1.Items.AddRange(new object[] {
+            "TODO",
+            "NOMBRE",
+            "TELEFONO"});
+            this.FiltrocomboBox1.Location = new System.Drawing.Point(83, 12);
+            this.FiltrocomboBox1.Name = "FiltrocomboBox1";
+            this.FiltrocomboBox1.Size = new System.Drawing.Size(121, 21);
+            this.FiltrocomboBox1.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "FILTRO:";
             // 
             // AgetextBox1
             // 
@@ -225,92 +314,16 @@ namespace PersonaForm
             // 
             this.MyerrorProvider1.ContainerControl = this;
             // 
-            // groupBox1
+            // Eliminarbutton2
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.Consultarbutton1);
-            this.groupBox1.Controls.Add(this.ConsultadataGridView1);
-            this.groupBox1.Controls.Add(this.CriteriotextBox1);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.FiltrocomboBox1);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(364, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 335);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CONSULTA";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "FILTRO:";
-            // 
-            // FiltrocomboBox1
-            // 
-            this.FiltrocomboBox1.FormattingEnabled = true;
-            this.FiltrocomboBox1.Items.AddRange(new object[] {
-            "TODO",
-            "NOMBRE",
-            "TELEFONO"});
-            this.FiltrocomboBox1.Location = new System.Drawing.Point(83, 12);
-            this.FiltrocomboBox1.Name = "FiltrocomboBox1";
-            this.FiltrocomboBox1.Size = new System.Drawing.Size(121, 21);
-            this.FiltrocomboBox1.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 48);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "CRITERIO:";
-            // 
-            // CriteriotextBox1
-            // 
-            this.CriteriotextBox1.Location = new System.Drawing.Point(83, 45);
-            this.CriteriotextBox1.Name = "CriteriotextBox1";
-            this.CriteriotextBox1.Size = new System.Drawing.Size(310, 20);
-            this.CriteriotextBox1.TabIndex = 3;
-            this.CriteriotextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CriteriotextBox1_KeyPress);
-            // 
-            // ConsultadataGridView1
-            // 
-            this.ConsultadataGridView1.AllowUserToAddRows = false;
-            this.ConsultadataGridView1.AllowUserToDeleteRows = false;
-            this.ConsultadataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultadataGridView1.Location = new System.Drawing.Point(11, 80);
-            this.ConsultadataGridView1.Name = "ConsultadataGridView1";
-            this.ConsultadataGridView1.ReadOnly = true;
-            this.ConsultadataGridView1.Size = new System.Drawing.Size(382, 209);
-            this.ConsultadataGridView1.TabIndex = 4;
-            // 
-            // Consultarbutton1
-            // 
-            this.Consultarbutton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Consultarbutton1.Location = new System.Drawing.Point(241, 8);
-            this.Consultarbutton1.Name = "Consultarbutton1";
-            this.Consultarbutton1.Size = new System.Drawing.Size(94, 31);
-            this.Consultarbutton1.TabIndex = 5;
-            this.Consultarbutton1.Text = "CONSULTAR";
-            this.Consultarbutton1.UseVisualStyleBackColor = false;
-            this.Consultarbutton1.Click += new System.EventHandler(this.Consultarbutton1_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(11, 295);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 31);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "INSERTAR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Eliminarbutton2.BackColor = System.Drawing.Color.Fuchsia;
+            this.Eliminarbutton2.Location = new System.Drawing.Point(145, 295);
+            this.Eliminarbutton2.Name = "Eliminarbutton2";
+            this.Eliminarbutton2.Size = new System.Drawing.Size(101, 31);
+            this.Eliminarbutton2.TabIndex = 17;
+            this.Eliminarbutton2.Text = "ELIMINAR";
+            this.Eliminarbutton2.UseVisualStyleBackColor = false;
+            this.Eliminarbutton2.Click += new System.EventHandler(this.Eliminarbutton2_Click);
             // 
             // PersonForm
             // 
@@ -325,11 +338,11 @@ namespace PersonaForm
             this.Text = "Registro De Persona";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,6 +374,7 @@ namespace PersonaForm
         private System.Windows.Forms.ComboBox FiltrocomboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Eliminarbutton2;
     }
 }
 
